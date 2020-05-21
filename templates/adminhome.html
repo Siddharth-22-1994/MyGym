@@ -1,0 +1,58 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    img
+    {
+        width:100;
+        background-size:cover;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    h1
+    {
+        margin-left:500px;
+        z-index: 1;
+        text-transform: uppercase;
+        color:#ed563b;
+        font-weight: bold;
+        font-size:50px;
+        text-shadow: 1px 1px 6px black, 0 0 10px orange, 0 0 0.2em black;
+    }
+    h1:hover
+    {
+        text-shadow: 1px 1px 15px black, 0 0 6px orange, 0 0 20px black;
+    }
+    .addaccessoriesTab
+    {
+        width:150px;
+        height:40px;
+        margin-top:100px;
+        border-radius:5px;
+        margin-left:1150px;
+        background-color:#ed563b;
+        text-decoration:none;
+        font-weight:bold;
+    }
+
+</style>
+
+<div class="row">
+
+<button class="addaccessoriesTab" style="z-index: 1"> <a href="{% url 'addacessories' %}"> Add Products </a> </button>
+</div>
+
+
+<div class="row">
+    <img src="{% static 'images/strength-n-conditioning-tile.jpg' %}" class="bg" width="100%">
+
+    <h1 style="margin-top:200px;">Welcome admin</h1>
+
+</div>
+
+
+{% endblock %}

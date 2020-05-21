@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    img
+    {
+        width:100;
+        background-size:cover;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    .loginform
+    {
+        margin-top:200px;
+        z-index: 1;
+        margin-left:600px;
+    }
+    input
+    {
+        border-radius:10px;
+    }
+</style>
+
+<div class="row">
+
+    <img src="{% static 'images/gym-coronavirus.jpg' %}" class="bg">
+
+    <form method="post" class="loginform">
+        {% csrf_token %}
+        <label> <h3 style="margin-left:55px;"> LogIn  </h3> </label>
+        {{ form|crispy }}<br>
+        <input type="submit" value="Submit" style="background-color:transparent;border-radius:5px;margin-left:40px;color:white;font-weight: bold;">
+    </form>
+
+</div>
+
+{% endblock %}

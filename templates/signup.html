@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    img
+    {
+        width:100;
+        background-size:cover;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    .regsiterform
+    {
+        margin-top:200px;
+        z-index: 1;
+        margin-left:600px;
+    }
+    input
+{
+border-radius:5px;
+}
+</style>
+
+<div class="row">
+
+<img src="{% static 'images/gym-coronavirus.jpg' %}" class="bg">
+
+<form method="post" class="regsiterform">
+    {% csrf_token %}
+    <label> <h3 style="margin-left:38px;color:#ed563b;font-weight:bold;"> Sign Up</h3> </label>
+    {{ form|crispy}}<br>
+    <input type="submit" value="Submit" style="background-color:transparent;border-radius:5px;margin-left:40px;font-weight: bold;color:#ed563b;">
+
+</form>
+
+    </div>
+
+{% endblock %}

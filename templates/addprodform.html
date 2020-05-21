@@ -1,0 +1,51 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    .bg
+    {
+        width:100;
+        background-size:cover;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    .appprodform
+    {
+        margin-top:160px;
+        margin-left:600px;
+        z-index: 1;
+        font-weight:bold;
+        color:#ed563b;
+    }
+    button
+    {
+        background-color:transparent;
+        border: 2px solid #ed563b;
+        border-radius: 5px;
+        color:Black;
+        font-weight:bold;
+        margin-left:45px;
+    }
+</style>
+
+<div class="row">
+    <img src="{% static 'images/strength-n-conditioning-tile.jpg' %}" class="bg" width="100%">
+
+    <form method="post" action="{% url 'addacessories' %}" class="appprodform" enctype="multipart/form-data">
+        {% csrf_token %}
+            {{ form|crispy }}<br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .bg
+    {
+        width:100%;
+        background-size:cover;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+    th
+    {
+    text-align:center;
+    color:#ed563b;
+    }
+
+    td
+    {
+     text-align:center;
+      color:Black;
+    }
+</style>
+
+<div class="row">
+
+    <img src="{% static 'images/grey.jpg' %}" class="bg">
+
+    <table border="2" style="margin-left:250px;margin-top:160px;z-index: 1;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Product</th>
+            <th>Prod_id</th>
+            <th>Quantity</th>
+            <th>card_number</th>
+            <th>cvv</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for val in PurchasedProd %}
+            <tr>
+                <td>{{val.Name}}</td>
+                <td>{{val.Email}}</td>
+                <td>{{val.Product}}</td>
+                <td>{{val.Prod_id}}</td>
+                <td>{{val.Quantity}}</td>
+                <td>{{val.card_number}}</td>
+                <td>{{val.cvv}}</td>
+                <td>{{val.Date}}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+
+body
+{
+background-color:#DCDCDC;
+}
+                                {# parellex Image #}
+
+.Accessories_parllex-Img
+    {
+        background: url({% static 'images/Strength_1.2e16d0ba.fill-1000x600.jpg' %}) no-repeat center;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 400px;
+        z-index: 1;
+        margin-top:20px;
+    }
+
+.Eqipment
+{
+margin-top:30px;
+}
+
+.Eqipment img
+{
+width:480px;
+height:470px;
+border:2px solid black;
+box-shadow:2px 2px 10px orange;
+}
+.Eqipment button
+{
+background-color:transparent;
+border: 2px solid black;
+border-radius: 5px;
+font-weight:bold;
+font-size:20px;
+color:#ed563b;
+}
+</style>
+
+<!--                                {# top heading &#45;&#45; > Priority Heding #}-->
+
+<div class="row">
+    <h4 class="Accessories_heading">Your health is our Priority </h4>
+</div>
+
+<!--                                {# text in parellex Image #}-->
+<!--                                    {# parellex Image #}-->
+
+
+<div class="row">
+    <div class="Accessories_parllex-Img">
+        <p id="accessories_page_big-img-text"> Our Products for<br><br><br> your Fitness<br>
+            <span style="margin-left:1500px;width:100%"></span>
+        </p>
+    </div>
+</div><br>
+
+    <div class="row">
+        {% if messages %}
+        {% for mesg in messages %}
+        <h5 style="color:red; margin-left:600px;"><b>{{ mesg }}</b></h5>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+<!--                                {# Eqipmanet Headings #}-->
+<div class="container">
+<div class="row">
+    {% for val in dispproduct %}
+
+    <div class="col-sm-6">
+
+        <div class="Eqipment">
+           <img src="{{ val.Pictures.url }}" alt="Image" style=""><br><br>
+            <button style="margin-left:140px;"> {{ val.Name }}</button><br><br>
+            <div class="row">
+                <h5 class="prod_id" style="margin-left:20px;"><b>Pord Id:</b></h5>
+            <h5 style="margin-left:10px;">{{ val.Prod_id }}</h5>
+            <h5 style="margin-left:70px;"><b>Price: </b> </h5><br>
+            <h5 style="margin-left:10px;">{{ val.Price }}</h5><br>
+                </div>
+            <div class="row">
+            <h5 style="margin-left:100px;"><b>Specification: </b></h5>
+            <h5 style="margin-left:10px;">{{ val.Specification }}</h5>
+            </div>
+            <div class="row">
+            <h5> <b>Status: </b></h5>
+            <h5 style="margin-left:10px;">{{ val.Status }}</h5><br>
+            <h5 class="prod_catagody" style="margin-left:40px;"><b>Catagory: </b></h5>
+            <h5 style="margin-left:10px;">{{val.Eqipment }}</h5>
+            </div>
+            <button style="margin-left:170px;"><a href="{% url 'ByeProdpage' %}">Buy</a> </button><br>
+        </div>
+
+
+    </div>
+    {% endfor %}
+
+
+
+        </div>
+</div>
+
+
+{% endblock %}
